@@ -1,0 +1,77 @@
+# Search API Contract
+
+## Overview
+This API contract defines the interface for the enhanced search functionality in the Docusaurus documentation site.
+
+## Endpoints
+
+### Search Documentation
+```
+GET /api/search
+```
+
+#### Description
+Search across all documentation content with enhanced filtering and relevance scoring.
+
+#### Parameters
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| q | string | Yes | Search query string |
+| limit | integer | No | Maximum number of results (default: 10, max: 50) |
+| category | string | No | Filter by documentation category |
+| tags | string | No | Filter by comma-separated tags |
+
+#### Request Example
+```
+GET /api/search?q=robotics&limit=20&category=ros2
+```
+
+#### Response
+```json
+{
+  "results": [
+    {
+      "id": "string",
+      "title": "string",
+      "content_snippet": "string",
+      "url": "string",
+      "category": "string",
+      "tags": ["string"],
+      "relevance_score": "number"
+    }
+  ],
+  "total_results": "integer",
+  "query_time_ms": "number"
+}
+```
+
+#### Error Responses
+- `400`: Invalid query parameters
+- `500`: Internal server error
+
+## Configuration API
+```
+GET /api/config
+```
+
+#### Description
+Retrieve site configuration including UI settings and theming information.
+
+#### Response
+```json
+{
+  "theme": {
+    "primary_color": "string",
+    "secondary_color": "string",
+    "font_family": "string"
+  },
+  "search": {
+    "enabled": "boolean",
+    "max_results": "integer"
+  },
+  "accessibility": {
+    "high_contrast_mode": "boolean",
+    "screen_reader_support": "boolean"
+  }
+}
+```
