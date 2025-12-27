@@ -1,0 +1,104 @@
+# Configuration API Contract
+
+## Overview
+This API contract defines the interface for site configuration that may be relevant for UI fixes.
+
+## Endpoints
+
+### Get Site Configuration
+```
+GET /api/config
+```
+
+#### Description
+Retrieve site configuration including routing, navbar, and footer settings.
+
+#### Response
+```json
+{
+  "site": {
+    "title": "string",
+    "tagline": "string",
+    "url": "string",
+    "baseUrl": "string"
+  },
+  "navbar": {
+    "title": "string",
+    "logo": {
+      "src": "string",
+      "alt": "string",
+      "href": "string"
+    }
+  },
+  "footer": {
+    "style": "string",
+    "links": [
+      {
+        "title": "string",
+        "items": [
+          {
+            "label": "string",
+            "to": "string",
+            "href": "string"
+          }
+        ]
+      }
+    ],
+    "copyright": "string"
+  },
+  "routing": {
+    "homepage": "string",
+    "indexPath": "string"
+  }
+}
+```
+
+### Update Site Configuration
+```
+PUT /api/config
+```
+
+#### Description
+Update site configuration settings for navbar, footer, and routing.
+
+#### Request
+```json
+{
+  "navbar": {
+    "logo": {
+      "src": "string",
+      "alt": "string",
+      "href": "string"
+    }
+  },
+  "footer": {
+    "links": [
+      {
+        "title": "string",
+        "items": [
+          {
+            "label": "string",
+            "to": "string"
+          }
+        ]
+      }
+    ],
+    "copyright": "string"
+  },
+  "routing": {
+    "indexPath": "string"
+  }
+}
+```
+
+#### Response
+```json
+{
+  "success": "boolean",
+  "message": "string"
+}
+```
+
+#### Error Responses
+- `400`: Invalid configuration parameters
+- `500`: Internal server error

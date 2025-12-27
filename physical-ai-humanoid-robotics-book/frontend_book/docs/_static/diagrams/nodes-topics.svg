@@ -1,0 +1,53 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <title>Nodes and Topics Communication</title>
+  <desc>Diagram showing publisher-subscriber pattern with nodes and topics</desc>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial" font-size="16" text-anchor="middle" fill="#212529">Nodes and Topics Communication</text>
+
+  <!-- Publisher Node -->
+  <rect x="100" y="100" width="120" height="60" fill="#4285f4" stroke="#2a56c6" stroke-width="2" rx="10"/>
+  <text x="160" y="125" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Publisher</text>
+  <text x="160" y="140" font-family="Arial" font-size="10" text-anchor="middle" fill="white">Node</text>
+
+  <!-- Subscriber Node -->
+  <rect x="400" y="100" width="120" height="60" fill="#34a853" stroke="#248a43" stroke-width="2" rx="10"/>
+  <text x="460" y="125" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Subscriber</text>
+  <text x="460" y="140" font-family="Arial" font-size="10" text-anchor="middle" fill="white">Node</text>
+
+  <!-- Topic -->
+  <ellipse cx="300" cy="250" rx="80" ry="30" fill="#fbbc04" stroke="#d2a003" stroke-width="2"/>
+  <text x="300" y="255" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">/chatter</text>
+  <text x="300" y="270" font-family="Arial" font-size="10" text-anchor="middle" fill="#212529">Topic</text>
+
+  <!-- Arrows for communication -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ea4335" />
+    </marker>
+  </defs>
+
+  <!-- Publisher to Topic -->
+  <line x1="220" y1="130" x2="240" y2="220" stroke="#ea4335" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="230" y="180" font-family="Arial" font-size="10" fill="#ea4335">Publish</text>
+
+  <!-- Topic to Subscriber -->
+  <line x1="360" y1="220" x2="400" y2="130" stroke="#ea4335" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="380" y="180" font-family="Arial" font-size="10" fill="#ea4335">Subscribe</text>
+
+  <!-- Message Flow -->
+  <path d="M 250 150 Q 300 180 350 150" stroke="#34a853" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  <text x="300" y="170" font-family="Arial" font-size="10" text-anchor="middle" fill="#34a853">Messages</text>
+  <circle cx="350" cy="150" r="4" fill="#34a853"/>
+
+  <!-- Legend -->
+  <rect x="20" y="350" width="180" height="40" fill="none" stroke="#adb5bd" stroke-width="1"/>
+  <rect x="35" y="360" width="15" height="15" fill="#4285f4" stroke="#2a56c6" stroke-width="1"/>
+  <text x="55" y="370" font-family="Arial" font-size="10" fill="#212529">Publisher Node</text>
+  <rect x="35" y="378" width="15" height="15" fill="#34a853" stroke="#248a43" stroke-width="1"/>
+  <text x="55" y="388" font-family="Arial" font-size="10" fill="#212529">Subscriber Node</text>
+</svg>

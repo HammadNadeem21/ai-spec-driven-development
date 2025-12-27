@@ -1,0 +1,144 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <title>Coordinate Frames in URDF</title>
+  <desc>Diagram showing coordinate frames and transformations in URDF</desc>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial" font-size="16" text-anchor="middle" fill="#212529">Coordinate Frames in URDF</text>
+
+  <!-- World Frame -->
+  <g transform="translate(150, 150)">
+    <text x="0" y="-20" font-family="Arial" font-size="10" text-anchor="middle" fill="#212529">World Frame</text>
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#dc3545" stroke-width="3" marker-end="url(#arrowhead-red)"/>
+    <text x="65" y="0" font-family="Arial" font-size="9" fill="#dc3545">X</text>
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#28a745" stroke-width="3" marker-end="url(#arrowhead-green)"/>
+    <text x="0" y="70" font-family="Arial" font-size="9" fill="#28a745">Y</text>
+    <line x1="0" y1="0" x2="-30" y2="-30" stroke="#007bff" stroke-width="3" marker-end="url(#arrowhead-blue)"/>
+    <text x="-35" y="-35" font-family="Arial" font-size="9" fill="#007bff">Z</text>
+    <circle cx="0" cy="0" r="5" fill="#e2e3e5" stroke="#495057" stroke-width="1"/>
+  </g>
+
+  <!-- Robot Base Frame -->
+  <g transform="translate(250, 250)">
+    <text x="0" y="-20" font-family="Arial" font-size="10" text-anchor="middle" fill="#212529">Base Link Frame</text>
+    <rect x="-40" y="0" width="80" height="50" fill="#cce5ff" stroke="#0069d9" stroke-width="2" rx="5"/>
+    <text x="0" y="30" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">base_link</text>
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#dc3545" stroke-width="2.5" marker-end="url(#arrowhead-red)"/>
+    <text x="55" y="0" font-family="Arial" font-size="8" fill="#dc3545">X</text>
+    <line x1="0" y1="0" x2="0" y2="50" stroke="#28a745" stroke-width="2.5" marker-end="url(#arrowhead-green)"/>
+    <text x="0" y="60" font-family="Arial" font-size="8" fill="#28a745">Y</text>
+    <line x1="0" y1="0" x2="-20" y2="-20" stroke="#007bff" stroke-width="2.5" marker-end="url(#arrowhead-blue)"/>
+    <text x="-25" y="-25" font-family="Arial" font-size="8" fill="#007bff">Z</text>
+  </g>
+
+  <!-- Head Frame -->
+  <g transform="translate(250, 180)">
+    <text x="0" y="-15" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Head Frame</text>
+    <circle cx="0" cy="0" r="25" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+    <text x="0" y="5" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">head</text>
+    <line x1="0" y1="0" x2="35" y2="0" stroke="#dc3545" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+    <text x="40" y="0" font-family="Arial" font-size="7" fill="#dc3545">X</text>
+    <line x1="0" y1="0" x2="0" y2="35" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead-green)"/>
+    <text x="0" y="45" font-family="Arial" font-size="7" fill="#28a745">Y</text>
+    <line x1="0" y1="0" x2="-15" y2="-15" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead-blue)"/>
+    <text x="-20" y="-20" font-family="Arial" font-size="7" fill="#007bff">Z</text>
+  </g>
+
+  <!-- Left Arm Frame -->
+  <g transform="translate(330, 230)">
+    <text x="0" y="-15" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Left Arm Frame</text>
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#28a745" stroke-width="8" stroke-linecap="round"/>
+    <text x="0" y="5" font-family="Arial" font-size="8" text-anchor="middle" fill="white">left_arm</text>
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#dc3545" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+    <text x="45" y="0" font-family="Arial" font-size="7" fill="#dc3545">X</text>
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead-green)"/>
+    <text x="0" y="50" font-family="Arial" font-size="7" fill="#28a745">Y</text>
+    <line x1="0" y1="0" x2="-15" y2="-15" stroke="#007bff" stroke-width="2" marker-end="url(#arrowhead-blue)"/>
+    <text x="-20" y="-20" font-family="Arial" font-size="7" fill="#007bff">Z</text>
+  </g>
+
+  <!-- Transformation Example -->
+  <g transform="translate(500, 150)">
+    <text x="0" y="0" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">Transformation</text>
+    <text x="0" y="15" font-family="Arial" font-size="10" text-anchor="middle" fill="#495057">(xyz, rpy)</text>
+
+    <rect x="-100" y="25" width="200" height="100" fill="#e9ecef" stroke="#6c757d" stroke-width="2" rx="10"/>
+
+    <text x="-80" y="50" font-family="monospace" font-size="9" fill="#495057">&lt;joint ...&gt;</text>
+    <text x="-70" y="65" font-family="monospace" font-size="9" fill="#495057">&lt;origin</text>
+    <text x="-60" y="80" font-family="monospace" font-size="9" fill="#495057">xyz="0 0 1.0"</text>
+    <text x="-60" y="95" font-family="monospace" font-size="9" fill="#495057">rpy="0 0 0"/&gt;</text>
+    <text x="-80" y="110" font-family="monospace" font-size="9" fill="#495057">&lt;/joint&gt;</text>
+
+    <text x="0" y="140" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Translation: (0, 0, 1.0)</text>
+    <text x="0" y="155" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Rotation: (0, 0, 0)</text>
+  </g>
+
+  <!-- Coordinate System Explanation -->
+  <g transform="translate(500, 300)">
+    <text x="0" y="0" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">ROS Coordinate System</text>
+
+    <rect x="-120" y="10" width="240" height="130" fill="#d4edda" stroke="#28a745" stroke-width="2" rx="10"/>
+
+    <text x="0" y="30" font-family="Arial" font-size="10" text-anchor="middle" fill="#212529">Right-hand rule:</text>
+    <text x="0" y="45" font-family="Arial" font-size="9" text-anchor="middle" fill="#495057">• X: Forward</text>
+    <text x="0" y="60" font-family="Arial" font-size="9" text-anchor="middle" fill="#495057">• Y: Left</text>
+    <text x="0" y="75" font-family="Arial" font-size="9" text-anchor="middle" fill="#495057">• Z: Up</text>
+
+    <text x="0" y="100" font-family="Arial" font-size="10" text-anchor="middle" fill="#212529">Transform Parameters:</text>
+    <text x="0" y="115" font-family="Arial" font-size="9" text-anchor="middle" fill="#495057">xyz: Translation vector</text>
+    <text x="0" y="130" font-family="Arial" font-size="9" text-anchor="middle" fill="#495057">rpy: Roll-Pitch-Yaw angles</text>
+  </g>
+
+  <!-- Robot Tree Visualization -->
+  <g transform="translate(100, 350)">
+    <text x="100" y="0" font-family="Arial" font-size="11" text-anchor="middle" fill="#212529">Robot Tree Structure</text>
+
+    <!-- Base -->
+    <circle cx="100" cy="30" r="20" fill="#cce5ff" stroke="#0069d9" stroke-width="2"/>
+    <text x="100" y="35" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">base_link</text>
+
+    <!-- Head -->
+    <circle cx="100" cy="80" r="15" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+    <text x="100" y="85" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">head</text>
+    <line x1="100" y1="50" x2="100" y2="65" stroke="#212529" stroke-width="2"/>
+
+    <!-- Left Arm -->
+    <circle cx="150" cy="80" r="15" fill="#d1ecf1" stroke="#0c637c" stroke-width="2"/>
+    <text x="150" y="85" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">left_arm</text>
+    <line x1="100" y1="50" x2="150" y2="65" stroke="#212529" stroke-width="2"/>
+
+    <!-- Right Arm -->
+    <circle cx="50" cy="80" r="15" fill="#d1ecf1" stroke="#0c637c" stroke-width="2"/>
+    <text x="50" y="85" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">right_arm</text>
+    <line x1="100" y1="50" x2="50" y2="65" stroke="#212529" stroke-width="2"/>
+
+    <!-- TF Tree -->
+    <text x="100" y="120" font-family="Arial" font-size="10" text-anchor="middle" fill="#212529">TF Transform Tree</text>
+    <text x="100" y="135" font-family="Arial" font-size="8" text-anchor="middle" fill="#495057">Published by robot_state_publisher</text>
+  </g>
+
+  <!-- Arrowhead Definitions -->
+  <defs>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28a745" />
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff" />
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <rect x="650" y="450" width="130" height="40" fill="none" stroke="#adb5bd" stroke-width="1"/>
+  <line x1="660" y1="460" x2="672" y2="460" stroke="#dc3545" stroke-width="3"/>
+  <text x="680" y="463" font-family="Arial" font-size="8" fill="#212529">X Axis</text>
+  <line x1="660" y1="472" x2="672" y2="472" stroke="#28a745" stroke-width="3"/>
+  <text x="680" y="475" font-family="Arial" font-size="8" fill="#212529">Y Axis</text>
+  <line x1="660" y1="484" x2="668" y2="476" stroke="#007bff" stroke-width="3"/>
+  <text x="680" y="487" font-family="Arial" font-size="8" fill="#212529">Z Axis</text>
+</svg>

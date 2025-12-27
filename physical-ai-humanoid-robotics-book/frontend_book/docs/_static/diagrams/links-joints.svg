@@ -1,0 +1,135 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <title>URDF Links and Joints</title>
+  <desc>Diagram showing different types of joints connecting links in URDF</desc>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial" font-size="16" text-anchor="middle" fill="#212529">URDF Links and Joints: Connection Types</text>
+
+  <!-- Fixed Joint Example -->
+  <g transform="translate(100, 100)">
+    <text x="0" y="-15" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">Fixed Joint</text>
+    <rect x="-50" y="0" width="100" height="40" fill="#cce5ff" stroke="#0069d9" stroke-width="2" rx="5"/>
+    <text x="0" y="25" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link A</text>
+
+    <rect x="-50" y="60" width="100" height="40" fill="#fff3cd" stroke="#856404" stroke-width="2" rx="5"/>
+    <text x="0" y="85" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link B</text>
+
+    <line x1="0" y1="40" x2="0" y2="60" stroke="#212529" stroke-width="2"/>
+    <text x="10" y="55" font-family="Arial" font-size="8" fill="#212529">Fixed</text>
+  </g>
+
+  <!-- Revolute Joint Example -->
+  <g transform="translate(300, 100)">
+    <text x="0" y="-15" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">Revolute Joint</text>
+    <rect x="-50" y="0" width="100" height="40" fill="#cce5ff" stroke="#0069d9" stroke-width="2" rx="5"/>
+    <text x="0" y="25" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link A</text>
+
+    <circle cx="0" cy="70" r="30" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+    <text x="0" y="75" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link B</text>
+
+    <line x1="0" y1="40" x2="0" y2="40" stroke="#212529" stroke-width="2"/>
+    <!-- Revolute joint symbol -->
+    <circle cx="0" cy="55" r="5" fill="#e2e3e5" stroke="#495057" stroke-width="1"/>
+    <line x1="0" y1="50" x2="0" y2="60" stroke="#495057" stroke-width="1"/>
+    <text x="10" y="55" font-family="Arial" font-size="8" fill="#212529">Revolute</text>
+  </g>
+
+  <!-- Continuous Joint Example -->
+  <g transform="translate(500, 100)">
+    <text x="0" y="-15" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">Continuous Joint</text>
+    <rect x="-50" y="0" width="100" height="40" fill="#cce5ff" stroke="#0069d9" stroke-width="2" rx="5"/>
+    <text x="0" y="25" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link A</text>
+
+    <circle cx="0" cy="70" r="30" fill="#fff3cd" stroke="#856404" stroke-width="2"/>
+    <text x="0" y="75" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link B</text>
+
+    <circle cx="0" cy="55" r="8" fill="none" stroke="#28a745" stroke-width="2" stroke-dasharray="3,3"/>
+    <text x="0" y="58" font-family="Arial" font-size="8" text-anchor="middle" fill="#28a745">∞</text>
+    <text x="15" y="55" font-family="Arial" font-size="8" fill="#212529">Continuous</text>
+  </g>
+
+  <!-- Prismatic Joint Example -->
+  <g transform="translate(700, 100)">
+    <text x="0" y="-15" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">Prismatic Joint</text>
+    <rect x="-50" y="0" width="100" height="40" fill="#cce5ff" stroke="#0069d9" stroke-width="2" rx="5"/>
+    <text x="0" y="25" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link A</text>
+
+    <rect x="-30" y="70" width="60" height="40" fill="#fff3cd" stroke="#856404" stroke-width="2" rx="5"/>
+    <text x="0" y="95" font-family="Arial" font-size="9" text-anchor="middle" fill="#212529">Link B</text>
+
+    <rect x="-10" y="50" width="20" height="20" fill="none" stroke="#212529" stroke-width="2"/>
+    <line x1="0" y1="40" x2="0" y2="50" stroke="#212529" stroke-width="2"/>
+    <line x1="0" y1="70" x2="0" y2="70" stroke="#212529" stroke-width="2"/>
+    <text x="15" y="60" font-family="Arial" font-size="8" fill="#212529">Prismatic</text>
+  </g>
+
+  <!-- Joint Type Descriptions -->
+  <g transform="translate(50, 200)">
+    <text x="0" y="0" font-family="Arial" font-size="14" fill="#212529">Joint Types in URDF:</text>
+    <text x="0" y="25" font-family="Arial" font-size="10" fill="#495057">• Fixed: No movement between links</text>
+    <text x="0" y="40" font-family="Arial" font-size="10" fill="#495057">• Revolute: Rotational movement with limits</text>
+    <text x="0" y="55" font-family="Arial" font-size="10" fill="#495057">• Continuous: Rotational movement without limits</text>
+    <text x="0" y="70" font-family="Arial" font-size="10" fill="#495057">• Prismatic: Linear movement with limits</text>
+    <text x="0" y="85" font-family="Arial" font-size="10" fill="#495057">• Floating: 6 degrees of freedom</text>
+    <text x="0" y="100" font-family="Arial" font-size="10" fill="#495057">• Planar: Motion in a plane</text>
+  </g>
+
+  <!-- Complete Robot Chain Example -->
+  <g transform="translate(300, 300)">
+    <text x="100" y="-15" font-family="Arial" font-size="12" text-anchor="middle" fill="#212529">Robot Chain Example</text>
+
+    <!-- Base -->
+    <rect x="0" y="0" width="60" height="40" fill="#cce5ff" stroke="#0069d9" stroke-width="2" rx="5"/>
+    <text x="30" y="25" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">base_link</text>
+
+    <!-- Joint 1 -->
+    <circle cx="30" cy="60" r="5" fill="#e2e3e5" stroke="#495057" stroke-width="1"/>
+    <text x="30" y="55" font-family="Arial" font-size="7" text-anchor="middle" fill="#495057">joint1</text>
+
+    <!-- Link 1 -->
+    <rect x="10" y="70" width="40" height="30" fill="#fff3cd" stroke="#856404" stroke-width="2" rx="5"/>
+    <text x="30" y="90" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">link1</text>
+
+    <!-- Joint 2 -->
+    <circle cx="30" cy="120" r="5" fill="#e2e3e5" stroke="#495057" stroke-width="1"/>
+    <text x="30" y="115" font-family="Arial" font-size="7" text-anchor="middle" fill="#495057">joint2</text>
+
+    <!-- Link 2 (End Effector) -->
+    <circle cx="30" cy="150" r="20" fill="#d1ecf1" stroke="#0c637c" stroke-width="2"/>
+    <text x="30" y="155" font-family="Arial" font-size="8" text-anchor="middle" fill="#212529">end_eff</text>
+
+    <!-- Tree Structure -->
+    <line x1="30" y1="40" x2="30" y2="55" stroke="#212529" stroke-width="1"/>
+    <line x1="30" y1="65" x2="30" y2="70" stroke="#212529" stroke-width="1"/>
+    <line x1="30" y1="100" x2="30" y2="115" stroke="#212529" stroke-width="1"/>
+    <line x1="30" y1="125" x2="30" y2="130" stroke="#212529" stroke-width="1"/>
+  </g>
+
+  <!-- URDF XML Representation -->
+  <g transform="translate(550, 300)">
+    <rect x="0" y="0" width="200" height="160" fill="#e9ecef" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="100" y="20" font-family="Arial" font-size="11" text-anchor="middle" fill="#212529">URDF XML Example</text>
+
+    <text x="10" y="40" font-family="monospace" font-size="8" fill="#495057">&lt;link name="base_link"&gt;</text>
+    <text x="20" y="55" font-family="monospace" font-size="8" fill="#495057">...</text>
+    <text x="10" y="70" font-family="monospace" font-size="8" fill="#495057">&lt;/link&gt;</text>
+
+    <text x="10" y="90" font-family="monospace" font-size="8" fill="#495057">&lt;joint name="joint1"</text>
+    <text x="20" y="105" font-family="monospace" font-size="8" fill="#495057">type="revolute"&gt;</text>
+    <text x="20" y="120" font-family="monospace" font-size="8" fill="#495057">&lt;parent link="base_link"/&gt;</text>
+    <text x="20" y="135" font-family="monospace" font-size="8" fill="#495057">&lt;child link="link1"/&gt;</text>
+    <text x="10" y="150" font-family="monospace" font-size="8" fill="#495057">&lt;/joint&gt;</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="50" y="420" width="200" height="60" fill="none" stroke="#adb5bd" stroke-width="1"/>
+  <rect x="60" y="430" width="12" height="12" fill="#cce5ff" stroke="#0069d9" stroke-width="1"/>
+  <text x="80" y="439" font-family="Arial" font-size="9" fill="#212529">Link A</text>
+  <rect x="60" y="445" width="12" height="12" fill="#fff3cd" stroke="#856404" stroke-width="1"/>
+  <text x="80" y="454" font-family="Arial" font-size="9" fill="#212529">Link B</text>
+  <circle cx="66" cy="470" r="6" fill="#e2e3e5" stroke="#495057" stroke-width="1"/>
+  <text x="80" y="474" font-family="Arial" font-size="9" fill="#212529">Joint</text>
+</svg>
