@@ -1,0 +1,209 @@
+openapi: 3.0.0
+info:
+  title: Voice Command API for VLA Module
+  description: API for processing voice commands in the Vision-Language-Action system
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /voice/process:
+    post:
+      summary: Process a voice command
+      description: Takes audio data or text and processes it through the VLA pipeline
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                audio:
+                  type: string
+                  format: binary
+                  description: Audio file to be processed
+                text:
+                  type: string
+                  description: Alternative text input if audio is not provided
+                language:
+                  type: string
+                  default: en
+                  description: Language of the input
+          application/json:
+            schema:
+              type: object
+              required:
+                - text
+              properties:
+                text:
+                  type: string
+                  description: Text command to process
+                language:
+                  type: string
+                  default: en
+                  description: Language of the command
+      responses:
+        '200':
+          description: Successfully processed the voice command
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskPlan'
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal server error
+
+  /task/plan:
+    post:
+      summary: Create a task plan from natural language
+      description: Converts natural language command into executable action sequences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - command
+              properties:
+                command:
+                  type: string
+                  description: Natural language command to decompose
+                constraints:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SafetyConstraint'
+      responses:
+        '200':
+          description: Successfully created task plan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskPlan'
+        '400':
+          description: Invalid command format
+        '500':
+          description: Internal server error
+
+  /task/execute:
+    post:
+      summary: Execute a task plan
+      description: Executes a task plan in the simulation environment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskPlan'
+      responses:
+        '200':
+          description: Task execution started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  execution_id:
+                    type: string
+                    description: ID of the task execution
+                  status:
+                    type: string
+                    enum: [pending, executing, completed, failed]
+        '400':
+          description: Invalid task plan
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    VoiceCommand:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the command
+        transcript:
+          type: string
+          description: Text transcript of the voice command
+        confidence:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Confidence score of the speech-to-text conversion
+        timestamp:
+          type: string
+          format: date-time
+          description: When the command was captured
+
+    TaskPlan:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the plan
+        original_command:
+          type: string
+          description: The original voice command text
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionSequence'
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetyConstraint'
+        status:
+          type: string
+          enum: [pending, executing, completed, failed]
+          description: Current status of the plan
+
+    ActionSequence:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the action
+        type:
+          type: string
+          enum: [navigation, manipulation, perception, communication]
+          description: Type of action
+        parameters:
+          type: object
+          description: Parameters required for the action
+        dependencies:
+          type: array
+          items:
+            type: string
+            description: List of action IDs that must complete first
+        timeout:
+          type: number
+          description: Maximum time allowed for the action in seconds
+        priority:
+          type: integer
+          minimum: 0
+          maximum: 10
+          description: Priority level for execution
+
+    SafetyConstraint:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the constraint
+        type:
+          type: string
+          enum: [environmental, physical, operational]
+          description: Type of constraint
+        condition:
+          type: string
+          description: Condition that must be satisfied
+        severity:
+          type: string
+          enum: [warning, error]
+          description: Severity level
+        description:
+          type: string
+          description: Human-readable description of the constraint
