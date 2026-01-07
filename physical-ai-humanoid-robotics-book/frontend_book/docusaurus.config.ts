@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://ai-spec-driven-development-pi.vercel.app',
+  url: 'https://physical-ai-humanoid-robotics-book-jade-zeta.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub Pages: https://<USERNAME>.github.io/<REPO>/
   baseUrl: '/',
