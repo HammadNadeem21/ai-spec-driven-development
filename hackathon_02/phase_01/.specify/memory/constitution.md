@@ -11,7 +11,7 @@ Follow-up TODOs: None
 ## Core Principles
 
 ### Correctness First
-Logic must be deterministic and testable at every phase; All implementations must follow predictable, verifiable behavior patterns; No hidden side effects allowed in any phase.
+Logic must be deterministic and testable at every phase; All implementations must follow predictable, verifiable behavior patterns; No hidden side effects allowed in any phase..
 
 ### Progressive Enhancement
 Each phase builds on the previous without requiring rework of prior functionality; New features must maintain backward compatibility where applicable; Evolution path must be clear and documented between phases.
